@@ -1,0 +1,131 @@
+This txt file is to understand some of the react native codes and its implementation
+BASICS
+- To start with first line of code,  
+- we need to import text(Behave like spam ) and view (It is similar to div tag) from react native,
+- As we are using typescript then we need to understasnd the type opf data
+- As anything written is a string so it should be inside a <Text></Text> tag 
+
+FILE STRUCTURE AND CODE FLOW
+- important files= Package.json, Index.js, app.tsx, Babel.config.js, Folder-node_modules, ios, android
+- package.json - Keep track of all the important command , dependency, libraries, etc of the project
+- Index.js- Entry point of the js make the , it registers app.js/ts as the main component where the project starts
+- App.js/ts- It is the starting point od the application
+-Babel.config.js - When the ecma version is not supported by the browser or emulator then this will change the js code into compitable version
+- node_modules- all external libraries, dependencies, are installed here - it can be downloaded anytime with the help of package.json
+-ios/android - convert js code to require3d android and ios code
+Other
+- tsconfig.json- used to change the configuration and version, protocols, etc
+- package-lock - keep details of the internal packages(dependencies of packages) used in the project
+- metro.config.js- help in changes in real time
+- .watchmancofig - works with metro it sees the changes and then instructs the metro file to refresh the page 
+- Gemfile- used inside the ruby, helpt to get conmnect with the browser
+- app.json- name and description of thhe Folder
+- .prettierrc.js - keep track of the formatting of the code
+- .gitignore- ignore the file which we don't want to upload in the github
+- in bundle there is build creted when we are pushing the code in production
+
+UI COMPONENTS //We don't say tag in native just the component
+use import statement
+import React from 'react'
+import {Text, View, Button} from 'react-native
+<view> Work as div where the elements are wrapped And used as seperation
+    <Text></Text> work as spam and gives the type of the data and used for simple writing of texts
+</view>
+
+<button></button> same as button tag in html
+button need one property title, and we can't change its padding and margin
+
+we can use inline style same as react in react native
+we can also declare text inxide text or view inside view
+react native use react as internal library
+
+JSX
+
+we can add js and html
+
+we can add html directly inside the js and ts functions
+
+let name="shivam"
+function app(){
+    return(
+        <Text>{name}</Text>
+    );
+}
+export default App; //This works fine as we have used both js and html inside this file
+
+COMPONENTS
+- reusable code such as functions
+- functional and class based
+- A component name have to start with capital letter
+- We can also create different component in same file as well as in another file
+ex-
+function app(){
+    return(
+        <Text>{name}</Text>
+        <Data/>
+    );
+}
+const Data = ()=>{
+    return(
+        <View>
+        <Text>abh</Text>
+        </View>
+    );
+}
+- Its working is same as in  react
+
+BUTTON AND onPress EVENT
+-First import it from React native
+- We can't add style directly to the button , we have to bind it inside the view component
+- <Button title="Name on button" color={'green'}/>
+const App = ()=>{
+  const Hello= ()=>{
+    console.warn("Hello");
+  }
+  return(
+    <View>
+      <Button title="Hello" onPress={Hello}/>
+    </View>
+  );
+}
+export default App; 
+- onPress is the event when their is press on button
+- Here when onpress event is done then the Hello function is called
+-Now to pass data from the button
+
+const App = ()=>{
+  const Hello= (val)=>{
+    console.warn(val);
+  }
+  return(
+    <View>
+      <Button title="Hello" onPress={()=>Hello("Hello")}/>
+    </View>
+  );
+}
+-this will now work as we have passed the value to the function by making an arrow function
+
+STATE 
+-information holder
+- whenever we update the state then component will be re rendered but that is not in the case of normal variable
+-const {name,setName}=useState("Shivam");
+- now we can change itrs value by setName("Ramesh");
+-and its value is stored in variable name
+- Also we can not direct update state from event but it had to be updated in the function
+- We can also update the state directly by array function in the event listener
+
+Life Cycle method
+-Phase
+  -Mounting -means start
+  -update - refresh
+  -unmount - chaanging of component removing from ui
+-When life cycle method will be executed
+ -furst time rendering
+ -updating with state
+ -updating with props
+ -on error
+ -on unmounting
+-we can use this methods when we need them like fr
+
+
+
